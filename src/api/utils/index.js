@@ -1,3 +1,6 @@
-export const getApiKey = () => {
-  return '13289286-f14bbe385c9a6b2794de4e22a';
+export const getURLWithKey = () => {
+  const url = process.env.REACT_APP_API_URL;
+  const key = process.env.REACT_APP_API_KEY;
+
+  return `${ url }?key=${ key }`;
 };

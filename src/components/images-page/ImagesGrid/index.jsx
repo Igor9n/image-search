@@ -32,7 +32,6 @@ export const ImagesGrid = props => {
 
   const notFound = grid.length === 0 && !images.loading;
 
-  console.log(grid, images.loading);
   return (
     <div className="container-fluid min-vh-100 h-100" style={ style }>
       { images.loading && (
