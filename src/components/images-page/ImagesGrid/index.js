@@ -4,7 +4,7 @@ import { ClipLoader } from 'react-spinners';
 export const ImagesGrid = props => {
   const { images } = props;
   const style = {
-    backgroundColor: '#0f36b5',
+    backgroundColor: '#10278a',
     paddingTop: '10px'
   };
 

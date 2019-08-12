@@ -30,7 +30,7 @@ export class ImagesPage extends Component {
     const { searchValue, showImages } = this.state;
     const { images } = this.props;
     const style = {
-      backgroundColor: '#410d03'
+      backgroundColor: '#544150'
     };
 
     const divClasses = classNames(
