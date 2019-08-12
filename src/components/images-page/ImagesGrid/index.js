@@ -8,19 +8,23 @@ export const ImagesGrid = props => {
     paddingTop: '10px'
   };
 
-  let grid = null;
+  let grid = [];
 
   if (images.data) {
     grid = images.data.map((image, id) => (
       <div key={ `div_${ id }` } className="col-4" align="center" style={ { paddingTop: '10px' } }>
         <a key={ `a_${ id }` } href={ image.pageURL }>
-          <img key={ `img_${ id }` } width="100%"
-               src={ image.webformatURL } alt={ image.tags }/>
+          <img
+            key={ `img_${ id }` } width="100%" height="100%"
+            src={ image.webformatURL } alt={ image.tags }/>
         </a>
       </div>
     ));
   }
 
+  const notFound = grid.length === 0 && !images.loading;
+
+  console.log(grid, images.loading);
   return (
     <div className="container-fluid min-vh-100 h-100" style={ style }>
       { images.loading && (
@@ -28,9 +32,18 @@ export const ImagesGrid = props => {
           <ClipLoader size={ 400 }/>
         </div>
       ) }
-      { grid && (
+      { grid.length > 0 && (
         <div className="row justify-content-around">
           { grid }
+        </div>
+      ) }
+
+
+      { notFound && (
+        <div align="center">
+          <img
+            src="https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png"
+            alt="not found"/>
         </div>
       ) }
     </div>
