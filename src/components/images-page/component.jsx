@@ -72,7 +72,7 @@ export class ImagesPage extends Component {
 
 ImagesPage.propTypes = {
   images: PropTypes.shape({
-    data: PropTypes.instanceOf(Array).isRequired,
+    data: PropTypes.instanceOf(Array),
     loading: PropTypes.bool.isRequired,
   }).isRequired,
   fetchImages: PropTypes.func.isRequired,

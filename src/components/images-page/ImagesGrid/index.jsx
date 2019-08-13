@@ -59,7 +59,7 @@ export const ImagesGrid = (props) => {
 
 ImagesGrid.propTypes = {
   images: PropTypes.shape({
-    data: PropTypes.instanceOf(Array).isRequired,
+    data: PropTypes.instanceOf(Array),
     loading: PropTypes.bool.isRequired,
   }).isRequired,
 };

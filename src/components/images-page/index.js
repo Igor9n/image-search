@@ -2,16 +2,16 @@ import { connect } from 'react-redux';
 import { fetchImages } from '../../store/image/actions';
 import { ImagesPage } from './component';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   const { images } = state;
 
   return {
-    images
+    images,
   };
 };
 
 const actionCreators = {
-  fetchImages
+  fetchImages,
 };
 
 export default connect(mapStateToProps, actionCreators)(ImagesPage);
