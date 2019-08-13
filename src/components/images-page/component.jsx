@@ -23,7 +23,7 @@ export class ImagesPage extends Component {
     const { fetchImages } = this.props;
 
     const query = `q=${ encodeURI(searchValue) }`;
-    fetchImages(query);
+    fetchImages({ query });
   };
 
   render() {

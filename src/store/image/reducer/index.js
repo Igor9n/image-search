@@ -9,19 +9,19 @@ const initialState = {
 
 const fetchImagesStart = (state, action) => ({
   ...state,
-  loading: action.loading
+  loading: action.payload.loading
 });
 
 const fetchImagesSuccess = (state, action) => ({
   ...state,
-  loading: action.loading,
-  data: action.images
+  loading: action.payload.loading,
+  data: action.payload.data
 });
 
 const fetchImagesFail = (state, action) => ({
   ...state,
-  error: action.error,
-  loading: action.loading
+  error: action.payload.error,
+  loading: action.payload.loading
 });
 
 

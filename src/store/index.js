@@ -8,7 +8,6 @@ export const rootReducer = combineReducers({
   images: imagesReducer
 });
 
-console.log(process.env)
 export function* rootSaga() {
   yield all([
     fetchImagesSaga(),

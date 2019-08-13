@@ -21,10 +21,8 @@ export const ImagesGrid = props => {
 
     grid = sortedImages.map((image, id) => (
       <div key={ `div_${ id }` } className="col-4" align="center" style={ { paddingTop: '10px' } }>
-        <a key={ `a_${ id }` } href={ image.pageURL }>
-          <img
-            key={ `img_${ id }` } width="100%"
-            src={ image.webformatURL } alt={ image.tags }/>
+        <a href={ image.pageURL }>
+          <img width="100%" src={ image.webformatURL } alt={ image.tags }/>
         </a>
       </div>
     ));

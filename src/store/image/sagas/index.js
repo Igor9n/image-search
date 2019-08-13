@@ -5,15 +5,21 @@ import { fetchImagesFail, fetchImagesStart, fetchImagesSuccess } from '../action
 
 export function* fetchImagesSaga() {
   while (true) {
-    const { query } = yield take(FETCH_IMAGES);
+    const { payload: { query } } = yield take(FETCH_IMAGES);
 
     try {
-      yield put(fetchImagesStart());
+      yield put(fetchImagesStart({ loading: true }));
       const { data } = yield call(fetchImages, query);
 
-      yield put(fetchImagesSuccess(data.hits));
+      yield put(fetchImagesSuccess({
+        loading: false,
+        data: data.hits
+      }));
     } catch (error) {
-      yield put(fetchImagesFail(error));
+      yield put(fetchImagesFail({
+        loading: false,
+        error
+      }));
     }
   }
 }
