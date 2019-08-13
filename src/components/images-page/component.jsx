@@ -9,7 +9,7 @@ import { ImagesGrid } from './ImagesGrid';
 export class ImagesPage extends Component {
   state = {
     searchValue: '',
-    showImages: false
+    showImages: false,
   };
 
   searchHandler = (e) => {
@@ -22,7 +22,7 @@ export class ImagesPage extends Component {
     const { searchValue } = this.state;
     const { fetchImages } = this.props;
 
-    const query = `q=${ encodeURI(searchValue) }`;
+    const query = `q=${encodeURI(searchValue)}`;
     fetchImages({ query });
   };
 
@@ -30,38 +30,38 @@ export class ImagesPage extends Component {
     const { searchValue, showImages } = this.state;
     const { images } = this.props;
     const style = {
-      backgroundColor: '#544150'
+      backgroundColor: '#544150',
     };
 
     const divClasses = classNames(
       'container-fluid',
       'search-input',
       {
-        'search-input-100': !images.data
+        'search-input-100': !showImages,
       },
       {
-        'search-input-10': images.data
-      }
+        'search-input-10': showImages,
+      },
     );
 
     return (
       <>
-        <div className={ divClasses } style={ style }>
+        <div className={divClasses} style={style}>
           <div className="row justify-content-center align-items-center h-100">
             <div className="col-6">
               <Search
-                value={ searchValue }
-                onChange={ this.searchHandler }/>
+                value={searchValue}
+                onChange={this.searchHandler}/>
             </div>
             <div className="col-2">
               <Button
-                onClick={ this.fetchHandler }
+                onClick={this.fetchHandler}
                 label="Search"/>
             </div>
           </div>
         </div>
 
-        { showImages && <ImagesGrid images={ images }/> }
+        {showImages && <ImagesGrid images={images}/>}
       </>
     );
   }

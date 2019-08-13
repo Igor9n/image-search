@@ -4,7 +4,7 @@ import ImagesPage from './components/images-page';
 
 function App() {
   return (
-    <ImagesPage/>
+    <ImagesPage />
   );
 }
 

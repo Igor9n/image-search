@@ -13,12 +13,12 @@ export function* fetchImagesSaga() {
 
       yield put(fetchImagesSuccess({
         loading: false,
-        data: data.hits
+        data: data.hits,
       }));
     } catch (error) {
       yield put(fetchImagesFail({
         loading: false,
-        error
+        error: error.toJSON().message,
       }));
     }
   }
