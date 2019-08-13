@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import './styles.css';
+import PropTypes from 'prop-types';
 
 import { Search } from '../common/search';
 import { Button } from '../common/button';
@@ -51,18 +52,28 @@ export class ImagesPage extends Component {
             <div className="col-6">
               <Search
                 value={searchValue}
-                onChange={this.searchHandler}/>
+                onChange={this.searchHandler}
+              />
             </div>
             <div className="col-2">
               <Button
                 onClick={this.fetchHandler}
-                label="Search"/>
+                label="Search"
+              />
             </div>
           </div>
         </div>
 
-        {showImages && <ImagesGrid images={images}/>}
+        {showImages && <ImagesGrid images={images} />}
       </>
     );
   }
 }
+
+ImagesPage.propTypes = {
+  images: PropTypes.shape({
+    data: PropTypes.instanceOf(Array).isRequired,
+    loading: PropTypes.bool.isRequired,
+  }).isRequired,
+  fetchImages: PropTypes.func.isRequired,
+};
