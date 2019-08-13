@@ -10,5 +10,5 @@ export const getURLWithKey = () => {
     console.log('[API_KEY] Undefined');
   }
 
-  return `${ url }?key=${ key }`;
+  return `${url}/?key=${key}`;
 };
