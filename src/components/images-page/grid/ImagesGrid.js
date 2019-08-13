@@ -2,11 +2,14 @@ import React from 'react';
 import { ClipLoader } from 'react-spinners';
 import PropTypes from 'prop-types';
 
-export const ImagesGrid = (props) => {
+import Col from '../../common/col/Col';
+import Row from '../../common/row/Row';
+import ContainerFluid from '../../common/container/ContainerFluid';
+
+const ImagesGrid = (props) => {
   const { images } = props;
-  const style = {
-    backgroundColor: '#10278a',
-    paddingTop: '10px',
+  const alignCenter = {
+    textAlign: 'center',
   };
 
   let grid = [];
@@ -20,39 +23,44 @@ export const ImagesGrid = (props) => {
       return 0;
     });
 
-    grid = sortedImages.map((image, id) => (
-      <div key={`div_${id}`} className="col-4" align="center" style={{ paddingTop: '10px' }}>
+    grid = sortedImages.map((image) => (
+      <Col key={`div_${image.id}`} size="4" padding="5px 15px 5px" textAlign="center">
         <a href={image.pageURL}>
-          <img width="100%" src={image.webformatURL} alt={image.tags}/>
+          <img width="100%" src={image.webformatURL} alt={image.tags} />
         </a>
-      </div>
+      </Col>
     ));
   }
 
   const notFound = grid.length === 0 && !images.loading;
 
   return (
-    <div className="container-fluid min-vh-100 h-100" style={style}>
+    <ContainerFluid
+      height="100%"
+      minHeight="100vh"
+      backgroundColor="#10278a"
+      padding="5px"
+    >
       {images.loading && (
-        <div className="col-12" align="center">
+        <Col size={12}>
           <ClipLoader size={400} />
-        </div>
+        </Col>
       )}
       {grid.length > 0 && (
-        <div className="row justify-content-around">
+        <Row justify type="center">
           {grid}
-        </div>
+        </Row>
       )}
 
       {notFound && (
-        <div align="center">
+        <div style={alignCenter}>
           <img
             src="https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png"
             alt="not found"
           />
         </div>
       )}
-    </div>
+    </ContainerFluid>
   );
 };
 
@@ -63,3 +71,5 @@ ImagesGrid.propTypes = {
     loading: PropTypes.bool.isRequired,
   }).isRequired,
 };
+
+export default ImagesGrid

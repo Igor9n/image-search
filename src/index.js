@@ -7,19 +7,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { rootReducer } from './store';
-import { rootSaga } from './store/';
+import { rootReducer, rootSaga } from './store';
 
 const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
   rootReducer,
-  applyMiddleware(sagaMiddleware)
+  applyMiddleware(sagaMiddleware),
 );
 
 const app = (
-  <Provider store={ store }>
-    <App/>
+  <Provider store={store}>
+    <App />
   </Provider>
 );
 

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchImages } from '../../store/image/actions';
-import { ImagesPage } from './component';
+import ImagesPage from './ImagesPage';
 
 const mapStateToProps = (state) => {
   const { images } = state;
