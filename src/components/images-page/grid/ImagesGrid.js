@@ -24,7 +24,7 @@ const ImagesGrid = (props) => {
     });
 
     grid = sortedImages.map((image) => (
-      <Col key={`div_${image.id}`} size="4" padding="5px 15px 5px" textAlign="center">
+      <Col key={`div_${image.id}`} size="4" padding="5px 15px 5px">
         <a href={image.pageURL}>
           <img width="100%" src={image.webformatURL} alt={image.tags} />
         </a>

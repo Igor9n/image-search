@@ -11,6 +11,7 @@ const ContainerFluid = styled.div`
   transition: height 1s;
   background-color:${(props) => (props.backgroundColor)};
   padding:${(props) => (props.padding)};
+  text-align: -webkit-center;
 `;
 
 export default ContainerFluid;

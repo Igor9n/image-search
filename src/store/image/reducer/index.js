@@ -25,15 +25,17 @@ const fetchImagesFail = (state, action) => ({
 });
 
 
-export const imagesReducer = (state = initialState, action) => {
+const imagesReducer = (state = initialState, action) => {
   switch (action.type) {
-  case FETCH_IMAGES_FAIL:
-    return fetchImagesFail(state, action);
-  case FETCH_IMAGES_START:
-    return fetchImagesStart(state, action);
-  case FETCH_IMAGES_SUCCESS:
-    return fetchImagesSuccess(state, action);
-  default:
-    return state;
+    case FETCH_IMAGES_FAIL:
+      return fetchImagesFail(state, action);
+    case FETCH_IMAGES_START:
+      return fetchImagesStart(state, action);
+    case FETCH_IMAGES_SUCCESS:
+      return fetchImagesSuccess(state, action);
+    default:
+      return state;
   }
 };
+
+export default imagesReducer;

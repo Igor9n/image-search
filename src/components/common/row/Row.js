@@ -37,15 +37,11 @@ const computeStyles = (type) => {
 
 
 const Row = styled.div`
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   margin-right: -15px;
   margin-left: -15px;
-  -ms-flex-pack: ${(props) => (props.justify ? computeStyles(props.type).flex : 'auto')};
   justify-content: ${(props) => (props.justify ? computeStyles(props.type).style : 'auto')};
-  -ms-flex-align: ${(props) => (props.align ? computeStyles(props.type).flex : 'auto')};
   align-items: ${(props) => (props.align ? computeStyles(props.type).style : 'auto')};
   height: ${(props) => (props.height ? props.height : 'auto')};
   width: 100%;

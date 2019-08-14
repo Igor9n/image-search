@@ -1,9 +1,9 @@
 import { take, put, call } from 'redux-saga/effects';
 import { FETCH_IMAGES } from '../constants';
-import { fetchImages } from '../../../api/images';
+import fetchImages from '../../../api/images';
 import { fetchImagesFail, fetchImagesStart, fetchImagesSuccess } from '../actions';
 
-export function* fetchImagesSaga() {
+function* fetchImagesSaga() {
   while (true) {
     const { payload: { query } } = yield take(FETCH_IMAGES);
 
@@ -23,3 +23,5 @@ export function* fetchImagesSaga() {
     }
   }
 }
+
+export default fetchImagesSaga;
